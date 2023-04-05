@@ -1,0 +1,30 @@
+﻿@using Stok_Proje.Models.Entity
+@model List<Tbl_Musteriler>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<table class="table table-bordered">
+    <tr>
+        <th>Müşteri ID</th>
+        <th>Müşteri Ad</th>
+        <th>Müşteri Soyad</th>
+        <th>Güncelle</th>
+        <th>Sil</th>
+    </tr>
+    <tbody>
+        @foreach (var u in Model)
+        {
+        <tr>
+            <td>@u.MUSTERIID</td>
+            <td>@u.MUSTERIAD</td>
+            <td>@u.MUSTERISOYAD</td>
+            <td><a href="/Musteri/MusteriGetir/@u.MUSTERIID" class="btn btn-success">Güncelle</a></td>
+            <td><a href="/Musteri/MusteriSil/@u.MUSTERIID" class="btn btn-danger">Sil</a></td>
+        </tr>
+        }
+    </tbody>
+</table>
+<a href="/Musteri/MusteriEkle" class="btn btn-primary">Yeni Müşteri Ekle</a>
+

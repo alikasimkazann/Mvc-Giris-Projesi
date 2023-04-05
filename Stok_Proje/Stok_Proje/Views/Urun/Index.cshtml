@@ -1,0 +1,35 @@
+﻿@using Stok_Proje.Models.Entity
+@model List<Tbl_Urunler>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<table class="table table-bordered">
+    <tr>
+        <th>Ürün Id</th>
+        <th>Ürün Adı</th>
+        <th>Ürün Markası</th>
+        <th>Ürün Kategorisi</th>
+        <th>Ürün Fiyatı</th>
+        <th>Ürün Stok</th>
+        <th>Güncelle</th>
+        <th>Sil</th>
+    </tr>
+    <tbody>
+        @foreach (var u in Model)
+        {
+        <tr>
+            <td>@u.URUNID</td>
+            <td>@u.URUNAD</td>
+            <td>@u.MARKA</td>
+            <td>@u.Tbl_Kategoriler.KATEGORIAD </td>
+            <td>@u.FIYAT</td>
+            <td>@u.STOK</td>
+            <td><a href="/Urun/UrunGetir/@u.URUNID" class="btn btn-success">Güncelle</a></td>
+            <td><a href="/Urun/UrunSil/@u.URUNID" class="btn btn-danger">Sil</a></td>
+        </tr>
+        }
+    </tbody>
+</table>
+<a href="/Urun/UrunEkle" class="btn btn-primary">Yeni Ürün Ekle</a>

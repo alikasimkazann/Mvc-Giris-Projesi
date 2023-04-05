@@ -1,0 +1,21 @@
+﻿@model Stok_Proje.Models.Entity.Tbl_Kategoriler
+
+@{
+    ViewBag.Title = "KategoriGuncelle";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+@using (Html.BeginForm("Guncelle", "Kategori", FormMethod.Post))
+{
+        <div class="form-group">
+        @Html.LabelFor(x => x.KATEGORIID)
+        @Html.TextBoxFor(x => x.KATEGORIID, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(x=>x.KATEGORIAD)
+        @Html.TextBoxFor(x=>x.KATEGORIAD, new {@class="form-control"})
+    </div>
+    <div>
+        <button class="btn btn-warning">Güncelle</button>
+    </div>
+}
+
